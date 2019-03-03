@@ -87,8 +87,19 @@ function squareOrDouble(n) {
 function ageFromBirthDate(birthDate) {
   const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
 
-  // Your code here
+  const year = birthDate.slice(0, 4);
+  const month = birthDate.slice(4, 6);
+  const date = birthDate.slice(6);
+
+  const today = new Date();
+  const dob = new Date(year, month - 1, date);
+
+  return Math.floor((today - dob) / _MS_PER_YEAR);
+
 }
+
+ageFromBirthDate('19900802')
+
 
 module.exports = {
   greet,
